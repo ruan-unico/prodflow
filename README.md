@@ -8,8 +8,8 @@ Usei a API chrome.tabs pra detectar quando o usuário muda de aba e registrei os
 
 📚 O que aprendi/desenvolvi nesse projeto:
 
-- Como o ciclo de vida de extensões Chrome funciona na prática (background scripts, service workers, manifest v3)
-- Lidar com eventos assíncronos de forma mais organizada - tabs.onActivated, tabs.onUpdated e windows.onFocusChanged todos interagindo ao mesmo tempo foi um desafio
-- Persistência de dados com chrome.storage e como evitar condição de corrida ao atualizar o objeto de tempos
-- A diferença entre o contexto do popup e do service worker (eles não compartilham memória, aprendi isso na prática rs)
-- Importância de testar em edge cases: aba fechada antes de salvar, janela perdendo foco, múltiplas janelas abertas
+- Como utilizar APIs do Chrome
+- Como funcionam extensões na prática (background scripts, service workers, manifest v3)
+- Como salvar dados com chrome.storage sem perder informação entre sessões
+- A diferença entre o popup e o service worker (eles não compartilham memória, aprendi isso na prática rs)
+- Como testar situações inesperadas: aba fechada antes de salvar, janela perdendo foco, múltiplas janelas abertas
