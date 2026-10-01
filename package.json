@@ -1,0 +1,12 @@
+{
+  "name": "prodflow",
+  "version": "2.0.0",
+  "description": "Extensão para Chrome que mostra quanto tempo você passa em cada site.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "author": "Ruan Souza",
+  "license": "MIT"
+}

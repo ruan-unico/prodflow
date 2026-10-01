@@ -1,3 +1,11 @@
+/* Fontes guardadas dentro da extensão (assets/fonts).
+   Antes vinham do Google Fonts: uma extensão de privacidade não deveria
+   avisar a um servidor externo toda vez que o popup abre. */
+@font-face { font-family: "Inter"; font-weight: 400; font-display: swap; src: url("../../assets/fonts/inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 600; font-display: swap; src: url("../../assets/fonts/inter-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Space Mono"; font-weight: 400; font-display: swap; src: url("../../assets/fonts/space-mono-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Space Mono"; font-weight: 700; font-display: swap; src: url("../../assets/fonts/space-mono-latin-700-normal.woff2") format("woff2"); }
+
 :root {
   --bg: #0f0f13;
   --surface: #1a1a24;
@@ -7,6 +15,7 @@
   --text: #e8e8f0;
   --text-muted: #888899;
   --red: #f87171;
+  --green: #4ade80;
 }
 
 * {
@@ -21,7 +30,7 @@ body {
   max-height: 520px;
   background: var(--bg);
   color: var(--text);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", system-ui, sans-serif;
   font-size: 13px;
   overflow: hidden;       /* esconde qualquer conteúdo que sair da área */
 }
@@ -82,21 +91,21 @@ header {
 
 /* nome da extensão */
 .nome {
-  font-family: 'Space Mono', monospace;
+  font-family: "Space Mono", ui-monospace, monospace;
   font-size: 15px;
   font-weight: 700;
   color: var(--text);
   letter-spacing: -0.3px;
 }
 
-/* a parte roxa do nome (TabTIMER) */
+/* a parte roxa do nome (Prod*Flow*) */
 .nome span {
   color: var(--accent);
 }
 
 /* pill de tempo total no canto do cabeçalho */
 #total {
-  font-family: 'Space Mono', monospace;
+  font-family: "Space Mono", ui-monospace, monospace;
   font-size: 11px;
   color: var(--text-muted);
   background: var(--surface);
@@ -140,6 +149,26 @@ header {
   border-color: var(--accent); /* Borda roxa ao passar o mouse */
 }
 
+/* Site que está sendo contado agora */
+.item.ativo {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent-glow);
+}
+
+.agora {
+  color: var(--green);
+  animation: pulsar 1.6s ease-in-out infinite;
+}
+
+@keyframes pulsar {
+  50% { opacity: 0.45; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agora { animation: none; }
+  .barra-progresso { transition: none; }
+}
+
 /* Linha de cima do card: título e tempo lado a lado */
 .info {
   display: flex;
@@ -148,7 +177,7 @@ header {
   margin-bottom: 6px;
 }
 
-/* Título da aba — corta com "..." se for longo demais */
+/* Domínio do site — corta com "..." se for longo demais */
 .titulo {
   font-weight: 600;
   font-size: 12.5px;
@@ -160,8 +189,13 @@ header {
   display: block;
 }
 
-/* Domínio da URL abaixo do título */
-.url {
+/* Bloco com domínio e detalhe; min-width: 0 deixa o "..." funcionar dentro do flex */
+.textos {
+  min-width: 0;
+}
+
+/* Linha de baixo: porcentagem do total */
+.detalhe {
   font-size: 10.5px;
   color: var(--text-muted);
   display: block;
@@ -170,7 +204,7 @@ header {
 
 /* Tempo gasto naquela aba (lado direito do card) */
 .tempo {
-  font-family: 'Space Mono', monospace;
+  font-family: "Space Mono", ui-monospace, monospace;
   font-size: 11.5px;
   color: var(--accent);
   white-space: nowrap;
@@ -211,14 +245,15 @@ footer {
   border: 1px solid var(--border);
   border-radius: 8px;
   color: var(--red);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", system-ui, sans-serif;
   font-size: 12px;
   cursor: pointer;
   transition: background 0.2s, border-color 0.2s;
   letter-spacing: 0.3px;
 }
 
-#btn-zerar:hover {
+#btn-zerar:hover,
+#btn-zerar:focus-visible {
   background: rgba(248, 113, 113, 0.08);
   border-color: var(--red); /* Borda vermelha ao passar o mouse */
 }

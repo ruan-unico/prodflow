@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>ProdFlow</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <div class="icone-relogio" aria-hidden="true"></div>
+      <span class="nome">Prod<span>Flow</span></span>
+    </div>
+    <span id="total" title="Tempo total registrado">0s</span>
+  </header>
+
+  <!-- Preenchida pelo popup.js -->
+  <main id="lista" aria-live="polite">
+    <p class="vazio">Carregando...</p>
+  </main>
+
+  <footer>
+    <button id="btn-zerar" type="button">⟳ Zerar todos os tempos</button>
+  </footer>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

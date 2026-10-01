@@ -1,27 +1,30 @@
 {
   "manifest_version": 3,
   "name": "ProdFlow",
-  "version": "1.0",
-  "description": "Mostra quanto tempo você passou em cada aba do navegador. Analise sua produtividade!",
+  "version": "2.0.0",
+  "description": "Mostra quanto tempo você passa em cada site. Analise sua produtividade sem enviar nenhum dado para fora do navegador.",
 
-  "permissions": ["tabs", "storage", "activeTab"],
+  "permissions": ["tabs", "storage", "idle", "alarms"],
 
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "src/background/service-worker.js",
+    "type": "module"
   },
 
   "action": {
-    "default_popup": "index.html",
+    "default_popup": "src/popup/popup.html",
     "default_title": "ProdFlow",
     "default_icon": {
-      "16": "icons/prodflow-icon.png",
-      "48": "icons/prodflow-icon.png"
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png"
     }
   },
 
   "icons": {
-    "16": "icons/prodflow-icon.png",
-    "48": "icons/prodflow-icon.png",
-    "128": "icons/prodflow-icon.png"
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
   }
 }
